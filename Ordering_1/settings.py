@@ -77,17 +77,17 @@ WSGI_APPLICATION = 'Ordering_1.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'online_ordering',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'USERNAME': 'root',
-        'PASSWORD': '',
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'online_ordering',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#         'USERNAME': 'root',
+#         'PASSWORD': '',
         
-    }
-}
+#     }
+# }
 
 
 # Password validation
