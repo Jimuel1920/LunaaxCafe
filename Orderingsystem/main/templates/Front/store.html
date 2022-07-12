@@ -1,0 +1,35 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block title %}
+
+     {{ user }} | Store
+
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="row">
+		<div> <h1 style="text-align: center"> LUNA X SKY CAFE </h1>
+				<h4 style="text-align: center"> Available menus is here feel free to order</h4>
+		</div>
+		{% for Product in products %}
+		<div class="col-lg-4 mt-2">
+
+			<img src="media/{{Product.pro_image}}" alt="userimage0" HEIGHT="50%" width="100%" class="rounded-cricle">
+			<div class="box-element product">
+				<h3><strong> {{ Product.pro_name }}   </strong></h3>
+				<h5><strong> Category :   {{ Product.Catergoty  }}   </strong></h5>
+				<p style="font-size: 24px"> Size:    {{ Product.pro_size  }} </p>
+				<hr>
+				<button data-product = {{Product.id}} data-action= "add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+				<h4 style="display: inline-block; float: right"><strong>₱ {{ Product.pro_price }} </strong></h4>
+
+			</div>
+		</div>
+
+		          {% endfor %}
+	</div>
+
+{% endblock content %}

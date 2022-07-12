@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Create Account
+
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+.containers{
+
+  margin-left: 25%;
+  width: 50%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+.containers .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.containers .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+
+
+
+</style>
+
+                  {% if error_message %}
+                    <p class="alert alert-danger">
+                    <strong> {{ error_message }}</strong>
+                    </p>
+                    {% endif  %}
+
+
+  <div class="containers">
+
+
+              <h2> Create new Admin/Staff Account </h2>
+
+
+                <form action="{% url 'backend:processedit' users.id %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                         <label> UID</label>
+                        <input type="number" name="uid" id="uid" class="form-control" required value="{{users.user_uid}}">
+                         </div>
+
+                    <div class="form-group">
+                        <label> Position</label>
+                        <input type="text" name="position" id="position" class="form-control" required value="{{users.user_position}}">
+                         </div>
+
+                    <div class="form-group">
+                        <label> First Name</label>
+                        <input type="text" name="fname" id="fname" class="form-control"required value="{{users.user_fname}}">
+                                </div>
+
+                    <div class="form-group">
+                        <label> Last Name</label>
+                        <input type="text" name="lname" id="lname" class="form-control"required value="{{users.user_lname}}">
+                         </div>
+
+                    <div class="form-group">
+                         <label>USERNAME</label>
+                        <input type="text" name="uname" id="uname" class="form-control"required value="{{users.user_username}}">
+                         </div>
+
+                    <div class="form-group">
+                         <label> Password</label>
+                        <input type="password" name="pword" id="pword" class="form-control"required value="{{users.user_password}}">
+                     </div>
+
+
+                    <div class="form-group">
+                         <label >Upload image</label>
+                         <input type="file" id="image" name="image" class="form-control">
+
+                        <button type="submit" class="btn btn-success mt-2 ">Update  </button>
+
+                     </div>
+
+
+
+                </form>
+
+  </div>
+
+{% endblock %}

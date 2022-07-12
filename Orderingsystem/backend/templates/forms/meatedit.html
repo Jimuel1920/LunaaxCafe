@@ -1,0 +1,101 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Create Account
+
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+.containers{
+
+  margin-left: 25%;
+  width: 50%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+.containers .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.containers .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+
+
+
+</style>
+
+                  {% if error_message %}
+                    <p class="alert alert-danger">
+                    <strong> {{ error_message }}</strong>
+                    </p>
+                    {% endif  %}
+
+
+  <div class="containers">
+
+
+              <h2> Create new Admin/Staff Account </h2>
+
+
+                <form action="{% url 'backend:mproccessedit' meats.id %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                     {% csrf_token %}
+
+                        <div class="form-group">
+                             <label> Product id</label>
+                            <input type="text" name="pid" id="pid" class="form-control" required value="{{ meats.m_id }}">
+                             </div>
+
+                        <div class="form-group">
+                            <label> Product Name</label>
+                            <input type="text" name="proname" id="proname" class="form-control" required value="{{ meats.m_name }}">
+                             </div>
+
+                        <div class="form-group">
+                            <label> Price </label>
+                            <input type="number" name="price" id="price" class="form-control"required value="{{ meats.m_price }}">
+                                    </div>
+
+                        <div class="form-group">
+                            <label> Size </label>
+                            <input type="text" name="size " id="size " class="form-control"required value="{{ meats.m_size }}">
+                             </div>
+
+                        <div class="form-group">
+                             <label>Cateregory </label>
+                            <input type="text" name="cat" id="cat" class="form-control"required value="{{ meats.m_cat }}">
+                             </div>
+
+
+                        <div class="form-group">
+                        <label >Upload image Product </label>
+                        <input type="file" id="image" name="image" class="form-control">
+
+                            <button type="submit" class="btn btn-success mt-2 ">Proccess</button>
+
+                         </div>
+
+
+                    </form>
+
+                </div>
+
+{% endblock %}

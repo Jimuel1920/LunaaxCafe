@@ -1,0 +1,16 @@
+<nav class="navbar sticky-top navbar-dark bg-dark mb-2">
+
+
+            <div class="container">
+                {%  if user.is_authenticated %}
+                
+                <a href="/backend/home" CLASS="navbar-brand"><i class="fa fa-dashboard" aria-hidden="true"></i> DASHBOARD </a>
+                <a href="/backend/ship" CLASS="navbar-brand"><i class="fa fa-ticket" aria-hidden="true"></i> ORDERS </a>
+                <a href="/backend/products" CLASS="navbar-brand"> <i class="fa fa-product-hunt"aria-hidden="true"></i> PRODUCTS </a>
+                <a href="/backend/home" CLASS="navbar-brand"> <i class="fa fa-file-text" aria-hidden="true"></i> REPORTS</a>
+                <a href="/backend/logout " CLASS="navbar-brand"> LOGOUT <i class="fa fa-sign-in"aria-hidden="true"></i></a>
+                
+
+            {% endif %}
+            </div>
+        </nav>

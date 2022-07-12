@@ -1,0 +1,28 @@
+{% load static %}
+
+
+
+
+<div class="m-4 sticky-top ">
+    <nav class="navbar center sticky-top navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a href="{% url 'main:store' %}" class="navbar-brand">Luna x Sky Cafe</a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="{% url 'main:store' %}"><i class="fa fa-dashboard" aria-hidden="true"></i> Menus </a>
+                    <a class="nav-item nav-link"href="{% url 'main:cart' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> CART {{ cartItems }} </a>
+                    <a class="nav-item nav-link" href="{% url 'main:checkout' %}"><i class="fa fa-paypal" aria-hidden="true"></i> CHECKOUT </a>
+                    {%  if user.is_authenticated %}
+                    <a class="nav-item nav-link" style="text-align: left;" href="{% url 'main:checkout' %}"><i class="fa fa-cart" aria-hidden="true"></i> Logout | login</a>
+                     {% endif %}
+                </div>
+                <div class="navbar-nav ms-auto">
+
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    {{users.user_position}} - {{users.user_fname}} {{users.user_lname}}
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<style>
+
+.content{
+    position: center;
+}
+
+.containers{
+  width: 50%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  margin-left: 25%;
+  margin-top: 10px;
+}
+.containers .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.containers .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+
+</style>
+
+
+
+              <div class="containers text-center">
+                  
+                  <div class="ima=g-responsive text-center">
+                      
+                      
+                      <img src="/backend/media/{{users.user_image}}"alt="profile_user" class="img-rounded" width="300">
+                  </div>
+               <div class="containers">
+                     <h3> {{users.user_fname}} {{users.user_lname}}</h3>
+                     <p class="text-muted">Username: {{ users.user_username}} </p>
+                     <p >Position: {{ users.user_position}} </p>
+                     <p > {{ users.pub_date}} </p>
+                     <p > {{ users.user_uid}} </p>
+
+
+
+                     <div class="btn-group" role="group" aria-label="Basic example">
+                         <a href="{% url 'backend:deletes' users.id %}" class="btn btn-sm btn-danger"> DELETE</a>
+                         <a href="{% url 'backend:edits' users.id %}"class="btn btn-sm btn-info"> EDIT </a>
+                         <a href="{% url 'backend:accounts' %}" class="btn btn-sm btn-success"> RETURN </a>
+</div>
+ </div>                                                              
+</div>
+
+
+
+    
+
+{% endblock %}

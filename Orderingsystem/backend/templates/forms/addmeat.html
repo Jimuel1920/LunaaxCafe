@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Pancit
+{% endblock %}
+
+{% block content %}
+
+ <style>
+
+ .containers{
+ margin-left: 25%;
+  width: 50%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+.containers .title{
+  font-size: 25px;
+  font-weight: 500;
+
+}
+.containers .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: blue;
+}
+
+</style>
+
+{% if error_message %}
+
+<p class="alert alert-danger">
+    <strong> {{ error_message }}</strong>
+</p>
+
+{% endif  %}
+
+                <h1 class="text-cencter mb-4"> ADD NEW PRODUCT FOR MEAT</h1>
+
+                <div class="containers">
+                    <form action="{% url 'backend:Meatprocess' %}" method="post" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                             <label> Product id</label>
+                            <input type="text" name="pid" id="pid" class="form-control" required>
+                             </div>
+
+                        <div class="form-group">
+                            <label> Product Name</label>
+                            <input type="text" name="proname" id="proname" class="form-control" required>
+                             </div>
+
+                        <div class="form-group">
+                            <label> Price </label>
+                            <input type="number" name="price" id="price" class="form-control"required>
+                                    </div>
+
+                        <div class="form-group">
+                            <label> Size </label>
+                            <input type="text" name="size " id="size " class="form-control"required>
+                             </div>
+
+                        <div class="form-group">
+                             <label>Cateregory </label>
+                            <input type="text" name="cat" id="cat" class="form-control"required>
+                             </div>
+
+
+                        <div class="form-group">
+                        <label >Upload image Product </label>
+                        <input type="file" id="image" name="image" class="form-control"required>
+
+                            <button type="submit" class="btn btn-success mt-2 ">Add this product</button>
+
+                         </div>
+
+
+                    </form>
+
+                </div>
+
+{% endblock %}

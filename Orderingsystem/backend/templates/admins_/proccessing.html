@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Process
+{% endblock %}
+
+
+{% block content %}
+  <style>
+
+ .containers{
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+.containers .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.containers .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  .th th {
+                style="position: sticky;  top: 0; background: #727272; text-align: center"
+  }
+
+
+  </style>
+
+
+
+
+ <div class="containers">
+
+                 <h1> Notify the Costumer</h1>
+
+             <div class="containers">
+                 <div class="input-group">
+                  <input type="search" class="form-control rounded" placeholder="Search the order here" aria-label="Search" aria-describedby="search-addon" />
+                  <button type="button" class="btn btn-outline-primary"><i class="fa fa-search"></i> search</button>
+
+             </div>
+
+             <label  class="mt-4"> Note: </label>
+             <p> Notify the Costumer if the order is done</p>
+
+        
+          <div class="table-responsive" style="height: 500px;overflow: scroll;">
+                <table class="table table-bordered table-striped table-hover">
+
+                    <thead>
+                        <tr>
+
+                            <th scope="col" style="position: sticky;  top: 0; background: #727272; text-align: center">  ORDER ID </th>
+                            <th scope="col" style="position: sticky;  top: 0; background: #727272;text-align: center" >  CUSTOMER NAME </th>
+                            <th scope="col" style="position: sticky;  top: 0; background: #727272; text-align: center">  CONTACT NUMBER </th>
+                            <th scope="col" style="position: sticky;  top: 0; background: #727272; text-align: center">  DATE ORDERED</th>
+                             <th scope="col" style="position: sticky; top: 0; background: #727272; text-align: center">  DATE CONFIRMED</th>
+
+                        </tr>
+                    </thead>
+
+                       <tbody>
+
+                            <tr>
+                                <td></td>
+                                <td>   </td>
+                                <td>    </td>
+                                <td>    </td>
+
+                            </tr>
+
+                       </tbody>
+                </table>
+           </div>
+
+        </div>
+</div>
+
+
+
+{% endblock %}

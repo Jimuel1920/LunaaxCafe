@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    User list
+{% endblock %}
+
+{% block content %}
+
+<style>
+.containers{
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+.containers .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.containers .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+</style>
+
+
+
+             <div class="containers">
+                              {{ user }}
+                         <h1 class="text-center mb-4"> Accounts </h1>
+
+                <div class="containers">
+                    <form action="{% url 'backend:isearch' %}" method="GET">
+                        <div class="input-group mb-4">
+                          <input type="search" class="form-control rounded"  name="search" placeholder="Search" aria-label="Search" aria-describedby="search-addon" required>
+                          <div class="input-group-append">
+
+                         <a href="search"> <button type="submit" class="btn btn-outline-primary"><i class="fa fa-search"></i> search</button> </a>
+
+                       </div>
+                      </div>
+
+                         </form>
+
+                           <a href="add">
+                             <button type="button" class="btn btn-primary btn-lg" style="float:right; margin-left: 20px"><i class="fa fa-users" aria-hidden="true"> ADD USER </i></button>
+                           </a>
+
+
+                <!-- data presents -->
+                {% if user_list %}
+
+                   <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                            <th scope="col" style="position: sticky;  top: 0; background: #727272;">   UID</th>
+                            <th scope="col" style="position: sticky;  top: 0; background: #727272;">  Profile image</th>
+                            <th scope="col" style="position: sticky;  top: 0; background: #727272;">  Position</th>
+                            <th scope="col" style="position: sticky;  top: 0; background: #727272;">   First name</th>
+                            <th scope="col" style="position: sticky;  top: 0; background: #727272;">  Last name </th>
+                            <th scope="col" style="position: sticky;  top: 0; background: #727272;">   Date made</th>
+                            <th scope="col" style="position: sticky;  top: 0; background: #727272;">   Actions </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in user_list %}
+                            <tr>
+                                <td>{{ user.user_uid}} </td>
+                                <td class="text-center"><img src="media/{{user.user_image}}" alt="userimage0" width="50" class="rounded-cricle"></td>
+                                <td>{{ user.user_position}}</td>
+                                <td>{{ user.user_fname}} </td>
+                                <td>{{ user.user_lname}} </td>
+                                <td>{{ user.pub_date}} </td>
+                                 <td><a href="{% url 'backend:detail' user.id %}"> View </a></td>
+
+
+                              
+
+                            </tr>
+                              {% endfor %}
+                        </tbody>
+                    </table>
+
+                   </div>
+              </div>
+                 
+            </div>
+         {% else %}
+
+                     <p class="text-muted" style="text-align: center; font-size: 20pt"> No Staff/admin account available</p>
+
+
+{% endif %}
+{% endblock %}

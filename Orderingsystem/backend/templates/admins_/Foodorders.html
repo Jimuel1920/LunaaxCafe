@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Orders
+{% endblock %}
+
+
+{% block content %}
+  <style>
+
+ .containers{
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+.containers .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.containers .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+
+  </style>
+
+
+
+
+
+             <div class="containers">
+                       <h1> Incoming orders </h1>
+               
+                 <div class="containers">
+                     <div class="input-group">
+
+                      <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                      <button type="button" class="btn btn-outline-primary"><i class="fa fa-search"></i> search</button>
+
+                     </div>
+                 </div>
+
+     {% if ships %}
+        <div class="table-responsive" style="height: 500px;overflow: scroll;">
+                <table class="table table-bordered table-striped table-hover">
+
+                    <thead>
+                        <tr>
+
+                            <th scope="col" style="position: sticky;  top: 0; background: #727272; text-align: center">  SHIP ID </th>
+                            <th scope="col" style="position: sticky;  top: 0; background: #727272;text-align: center" >  CUSTOMER NAME </th>
+                            <th scope="col" style="position: sticky;  top: 0; background: #727272; text-align: center">  ADDRESS</th>
+                            <th scope="col" style="position: sticky; top: 0; background: #727272; text-align: center"> STREET</th>
+                            <th scope="col" style="position: sticky;  top: 0; background: #727272; text-align: center">  CONTACTS</th>
+                            <th scope="col" style="position: sticky;  top: 0; background: #727272; text-align: center">  ORDER ID</th>
+
+                            <th scope="col" style="position: sticky;  top: 0; background: #727272; text-align: center">  DATE ADDED</th>
+
+
+                        </tr>
+                    </thead>
+
+                       {% for Shippingaddress in ships %}
+
+                            <tr>
+
+                                <td>{{ Shippingaddress.id}} </td>
+                                <td>{{ Shippingaddress.customer}} </td>
+                                <td>{{ Shippingaddress.address}}</td>
+                                <td>{{ Shippingaddress.state}}</td>
+                                <td>{{ Shippingaddress.zipcode}} </td>
+                                <td>{{ Shippingaddress.order}}</td>
+                                <td>{{ Shippingaddress.date_added}} </td>
+                                
+
+
+
+
+
+                            </tr>
+                              {% endfor %}
+                </table>
+           </div>
+
+                    {% else %}
+
+                         <p class="text-muted" style="text-align: center; font-size: 20pt"> No order is available/p>
+
+                 {% endif %}
+
+</div>
+
+
+
+{% endblock %}
+
+
+  <!-- data presents -->
